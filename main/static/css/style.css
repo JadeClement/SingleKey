@@ -12,6 +12,9 @@ body {
   background-color: #ffffff;
   width: 100%;
 }
+p{
+  line-height:1.8;
+}
 /* make placeholder color lighter */
 ::placeholder {
   color: #c2c2c2;
@@ -243,6 +246,17 @@ select {
   color:white;
   background-color: #595d64;
 }
+
+.btn-transparent {
+  background-color: transparent; /* Make the background transparent */
+  color: #ffffff; /* Set the text color you want; white is used here */
+  border: 2px solid #ffffff; /* Set the border color; white is used here */
+  border-radius: 0.25rem; /* Adjust the border radius to match your design */
+  padding: 0.5rem 1rem; /* Adjust the padding to match your design */
+  font-size: 1rem; /* Adjust the font size as needed */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
 .dropdown-menu-right {
   margin-top: .5em;
 }
@@ -254,6 +268,12 @@ select {
   white-space: nowrap;
 }
 /* ----- Novel classes ----- */
+.main-title{
+  color:black;
+}
+.shadow{
+  box-shadow: 9px 9px 50px -6px rgba(0,0,0,0.8);
+}
 .sk-btn-sm {
   width: 13em;
   height: unset;
@@ -548,14 +568,16 @@ select {
 .white-text {
   color: white;
 }
+
 .footer {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: white;
+  background-color: #292568;
   z-index: 1;
   box-shadow: 0px -4px 14px rgba(0, 0, 0, 0.05);
+  height:50px;
 }
 .gradient {
   background-image: linear-gradient(to right, #292468 36%, #2598d8
@@ -633,6 +655,8 @@ select {
   border-radius: 3px;
   box-shadow: 0 1px 3px 0 rgba(63, 63, 68, 0.15), 0 0 0 1px rgba(63, 63, 68, 0.05);
   line-height: 2.5;
+  padding:20px;
+  margin-bottom:20px;
 }
 .input {
   width: 100%;

@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %} 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href='{% static 'css/style.css' %}'>
+    
+  </head>
+  <body>
+    <div class="navbar navbar-expand-lg m-1 mb-3">
+      <div class="navbar-brand">
+        <img src='{% static 'assets/singlekey_logo.png' %}' style="width: 150px;">
+      </div>
+      <div class=" ml-auto">
+        <button class='btn btn-outline-primary mr-lg-3 mb-lg-0 mb-4' onclick='window.location.href = "/login"' style="width: 7em;margin-top:1%;" >Login</button> 
+      </div>
+      
+
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-6 container">
+            <h3 class="main-title">Submit information</h3>
+            <form action="{% url 'thanks' %}" method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="nameInput" class="sk-dark-blue">Applicant Name</label>
+                <input type="text" class="form-control" id="nameInput" name="name" placeholder="Applicant name">
+              </div>
+              <div class="form-group">
+                <label for="emailInput"  class="sk-dark-blue">Email address</label>
+                <input type="email" class="form-control " id="emailInput" name="email" placeholder="Enter email">
+            </div>
+              <button type='submit' class='btn btn-primary'>Submit</button>
+            </form>
+          
+          <hr>
+            <h3 class="main-title">Submissions</h3>
+            <table class="table info-container shadow">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Applicant</th>
+                  <th>Email</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for submission in submissions %}
+                <tr>
+                  <td><img src="{% static 'assets/profile.png' %}"  style="width: 30px;"></td>
+                  <td>{{ submission.name }}</td>
+                  <td>{{ submission.email }}</td>
+                  <td>{{ submission.status }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                  <td colspan="3">No submissions yet.</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          
+          
+        </div> 
+
+        <div class="col-md-5">
+          <div class="row">
+            <div class="card gradient info-container shadow mt-1">
+                <h4 class="white-text">Hello Alex</h4>
+                <p class="white-text">
+                  Here is a quick summary of your activity so far. If you have any questions about your report feel free to book a call with us.
+                </p>
+                <button class='btn btn-transparent' onclick='window.location.href = "/call"' style="width: 13em;margin-top:1%;" >Book a Call</button> 
+              </div>
+          </div>
+
+          <div class="row">
+            <div class="card info-container shadow ">
+              <h4> Rent Guarantee</h4>
+              <p>
+                Never miss a rent payment! Learn how our Rent Guarantee Program protects your property and rental income so you can take the risk out of renting.
+              </p>
+              <button class='btn btn-outline-secondary mr-lg-3 mb-lg-0 mb-4' onclick='window.location.href = "/start"' style="width: 13em;margin-top:1%;" >Start Now</button> 
+            </div>
+          </div>
+
+        </div>
+        
+      </div>
+
+  </div>
+
+  </body>
+
+    
+  <footer class="footer" >
+    <!-- Footer Links -->
+      <div class="container">
+          <!-- Copyright -->
+          <p class="white-text mt-2">
+            © All rights reserved SingleKey 2021
+          </p>
+      </div>
+  </footer>
+
+</html>
+{% endblock %}
